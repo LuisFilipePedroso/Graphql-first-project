@@ -1,0 +1,19 @@
+{
+  "name": "GraphQl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev:server": "tsnd --transpile-only --ignore-watch node_modules src/server.ts",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "pg": "^8.3.0",
+    "typeorm": "^0.2.25"
+  }
+}
