@@ -1,5 +1,5 @@
-import ICreateUserDTO from './ICreateUserDTO';
-import User from '../database/entities/User';
+import ICreateUserDTO from 'repositories/users/ICreateUserDTO';
+import User from 'database/entities/User';
 
 export default interface IUsersRepository {
   find(): Promise<User[]>;

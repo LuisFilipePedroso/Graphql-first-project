@@ -1,9 +1,12 @@
-import UsersRepository from '../../../repositories/UsersRepository';
+import UsersRepository from '../../../repositories/users/UsersRepository';
 
 class MutationController {
 
-  async create(parent: any, {name, email, password}: { name: string, email: string, password: string }) {
+  async create(parent: any, data: { input: { name: string, email: string, password: string } }) {
+    const { name, email, password } = data.input;
     const usersRepository = new UsersRepository();
+
+    console.log('NAME: ', name);
 
     const userAlreadyExists = await usersRepository.findByEmail(email);
 

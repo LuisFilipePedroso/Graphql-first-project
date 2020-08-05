@@ -1,4 +1,4 @@
-import UsersRepository from '../../../repositories/UsersRepository';
+import UsersRepository from '../../../repositories/users/UsersRepository';
 
 class QueryController {
 
