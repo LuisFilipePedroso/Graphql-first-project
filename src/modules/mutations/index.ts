@@ -11,7 +11,7 @@ export default `
   }
 
   type Mutation {
-    createUser(input: UserInput): User!
+    createUser(input: UserInput!): User!
     updateUser(id: ID, user: UserInput): User
     
     createPost(input: PostInput!): Post!

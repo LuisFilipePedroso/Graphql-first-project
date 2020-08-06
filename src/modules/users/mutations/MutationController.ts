@@ -6,17 +6,13 @@ class MutationController {
     const { name, email, password } = data.input;
     const usersRepository = new UsersRepository();
 
-    console.log('NAME: ', name);
-
     const userAlreadyExists = await usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {
       throw new Error('User already exists');
     }
 
-    const user = await usersRepository.create({name, email, password});
-
-    return user;
+    return await usersRepository.create({name, email, password});
   }
 
   async update(parent: any, data: { id: string, user: { name: string, email: string, password: string } }) {

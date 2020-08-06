@@ -21,7 +21,7 @@ class Post {
   @Column()
   author_id: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(type => User, author => author.id)
   @JoinColumn({ name: 'author_id' })
   author: User;
 

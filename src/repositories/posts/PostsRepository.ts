@@ -1,4 +1,5 @@
-import ICreatePostDTO from './ICreatePostDTO';
+import ICreatePostDTO from './dtos/ICreatePostDTO';
+import IFindPostDTO from './dtos/IFindPostDTO';
 import Post from '../../database/entities/Post';
 import IPostRepository from './IPostRepository';
 import { getRepository, Repository } from 'typeorm';
@@ -10,14 +11,14 @@ class PostsRepository implements IPostRepository {
     this.ormRepository = getRepository(Post);
   }
 
-  public async find(): Promise<Post[]> {
-    return await this.ormRepository.find();
+  public async find(args?: IFindPostDTO): Promise<Post[]> {
+    const query = this.ormRepository.find({ relations: ['author'] });
+
+    return await query;
   }
 
   public async findById(id: string): Promise<Post | undefined> {
-    const post = await this.ormRepository.findOne(id);
-
-    return post;
+    return await this.ormRepository.findOne(id, { relations: ['author'] });
   }
 
   public async create(userData: ICreatePostDTO): Promise<Post> {

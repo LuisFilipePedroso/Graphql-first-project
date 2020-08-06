@@ -1,9 +1,9 @@
 export default `
   type Query {
-    users: [User!]!
+    users(limit: Int, filter: String): [User!]!
     user(id: ID!): User
   
-    posts: [Post!]!
+    posts(limit: Int, filter: String): [Post!]!
     post(id: ID!): Post
   }
 `

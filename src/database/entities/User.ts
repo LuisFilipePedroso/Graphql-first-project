@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany
 } from 'typeorm';
+
+import Post from './Post';
 
 @Entity('users')
 class User {
@@ -19,6 +22,9 @@ class User {
 
   @Column()
   password: string;
+
+  @OneToMany(type => Post, posts => posts.author)
+  posts: Post[];
 
   @CreateDateColumn()
   created_at: Date;

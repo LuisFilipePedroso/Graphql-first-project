@@ -5,10 +5,12 @@ class QueryController {
   async find() {
     const usersRepository = new UsersRepository();
 
-    return await usersRepository.find();
+    const users = await usersRepository.find();
+
+    return users;
   }
 
-  async show(id: string) {
+  async show(parent: any, id: string) {
     const usersRepository = new UsersRepository();
 
     const user = usersRepository.findById(id);
